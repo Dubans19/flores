@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { BsChevronLeft, BsChevronRight, BsCartPlus } from 'react-icons/bs'; // Icono de carrito
 import rosas from "../assets/rosas.png";
 import rosas2 from "../assets/Flores-y-Flores22.jpg"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import rosas from "../assets/rosas.png"
 const cardsData = [
   {
@@ -30,7 +30,7 @@ const cardsData = [
 const CardComponent = () => {
   const [hoverEffect, setHoverEffect] = useState(null);
 
-  const handleMouseMove = (e, index) => {
+  const handleMouseMove = (e:any, index:any) => {
     const width = e.target.clientWidth;
     const xPos = e.nativeEvent.offsetX;
 

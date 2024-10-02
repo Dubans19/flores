@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaSearch, FaUser, FaShoppingBag, FaBars, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { formatCurrency } from '../utils/helpers';
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     console.log("producto redux", producto)
     const count = producto.productos.length
     const precio = producto.productos
-    const totalPrecio = precio.reduce((acumulador, producto) => {
+    const totalPrecio = precio.reduce((acumulador:any, producto:any) => {
         return acumulador + producto.precio;
     }, 0);
 

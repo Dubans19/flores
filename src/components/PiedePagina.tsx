@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {

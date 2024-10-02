@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa'; // Importamos el icono del carrito
 import rosas from "../assets/Flores-y-Flores22.jpg"
 import { Link } from 'react-router-dom';

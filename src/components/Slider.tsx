@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import rosas from "../assets/rosas.png"
 import rosas2 from "../assets/Flores-y-Flores22.jpg"
 const images = [

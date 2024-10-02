@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaTruck, FaLock } from 'react-icons/fa';
 import { FiClock } from 'react-icons/fi';
 

@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 function Cart({producto}:{producto:any}) {
     console.log("producto es",producto)
