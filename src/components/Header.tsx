@@ -27,6 +27,7 @@ const Header: React.FC = () => {
     const producto = useSelector((state: any) => state); // Reemplaza 'any' con el tipo adecuado si lo tienes
     const count = producto.productos.length;
 
+    
     const totalPrecio = producto.productos.reduce((acumulador: number, producto: { precio: number }) => {
         return acumulador + producto.precio;
     }, 0);
