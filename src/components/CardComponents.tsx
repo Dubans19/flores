@@ -1,6 +1,14 @@
-import { useState } from 'react';
-import rosas from "../assets/rosas.png"
-const cardsData = [
+import { useState, MouseEvent } from 'react';
+import rosas from "../assets/rosas.png";
+
+interface CardData {
+  title: string;
+  description: string;
+  buttonText: string;
+  image: string; // Cambia a 'string' porque es la ruta de la imagen
+}
+
+const cardsData: CardData[] = [
   {
     title: 'Para Mamá',
     description: 'Un gesto amor para el ser más importante',
@@ -27,18 +35,24 @@ const cardsData = [
   },
 ];
 
-const CardComponent = () => {
-  const [hoverEffect, setHoverEffect] = useState(null);
+interface HoverEffect {
+  index: number;
+  rotate: string;
+  scale: number;
+}
 
-  const handleMouseMove = (e:any, index:any) => {
-    const width = e.target.clientWidth;
+const CardComponent: React.FC = () => {
+  const [hoverEffect, setHoverEffect] = useState<HoverEffect | null>(null);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>, index: number) => {
+    const width = e.currentTarget.clientWidth;
     const xPos = e.nativeEvent.offsetX;
 
-    if (xPos < width / 2) {
-      setHoverEffect({ index, rotate: '-1deg', scale: 1.1 });
-    } else {
-      setHoverEffect({ index, rotate: '-1deg', scale: 1.1 });
-    }
+    setHoverEffect({
+      index,
+      rotate: xPos < width / 2 ? '-1deg' : '1deg', // Ajusté el valor para el segundo caso
+      scale: 1.1,
+    });
   };
 
   const handleMouseLeave = () => {
