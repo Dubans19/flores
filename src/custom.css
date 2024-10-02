@@ -1,0 +1,14 @@
+/* src/custom.css */
+@keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-scroll-text {
+    animation: scroll 30s linear infinite; /* Duración ajustable */
+  }
+  
