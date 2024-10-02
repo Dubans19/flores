@@ -13,8 +13,6 @@ import { useSelector } from 'react-redux';
 const HomePage: React.FC = () => {
   const producto = useSelector((state: any) => state); // Reemplaza 'any' con el tipo adecuado si lo tienes
 
-
-
   const totalPrecio = producto.productos.reduce((acumulador: number, producto: { precio: number }) => {
     return acumulador + producto.precio;
   }, 0);
