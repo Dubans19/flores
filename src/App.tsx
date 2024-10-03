@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/iniciar-sesion' element={<Login />} />
-          <Route path='/response' element={<TransactionResponse/>} />
+          <Route path='/respuesta_transaccion' element={<TransactionResponse/>} />
           <Route path='flores/:id' element={<ProductDetail />} />
  
 
