@@ -15,7 +15,7 @@ const NotFound: React.FC = () => {
         <div className="mt-6">
           <a
             href="/"
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-500 transition duration-200"
+            className="px-4 py-2 bg-rose-600 text-white rounded-lg shadow hover:bg-blue-500 transition duration-200"
           >
             Regresar al Inicio
           </a>
