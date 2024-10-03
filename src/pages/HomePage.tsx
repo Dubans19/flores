@@ -20,14 +20,17 @@ const HomePage: React.FC = () => {
     const queryParams = new URLSearchParams(location.search);
   const state = queryParams.get('lapTransactionState');
   const transactionId = queryParams.get('transactionId');
+  const referenceCode = queryParams.get('referenceCode');
+  const amount = queryParams.get('TX_VALUE');
 
   console.log("el estado es state",state)
   console.log("transactionId es",transactionId)
+  console.log("reference code es",referenceCode)
+  console.log("amount es",amount)
 
 
-  const referenceCode = queryParams.get('referenceCode');
-  const amount = queryParams.get('TX_VALUE');
-  const currency = queryParams.get('currency');
+ 
+  // const currency = queryParams.get('currency');
     // Forzar el scroll al top al cargar el componente
     window.scrollTo(0, 0);
   }, [location]);
