@@ -19,7 +19,7 @@ const PayUForm = ({totalPrecio}:{totalPrecio:number}) => {
 
   useEffect(() => {
     const uniqueReferenceCode = generateReferenceCode();
-    console.log("uniqueReference", uniqueReferenceCode)
+    console.log("uniqueReferences", uniqueReferenceCode)
     const firmaGenerada = generateHash(api_key, merchantId, uniqueReferenceCode, String(totalPrecio));
     console.log("firma es", firmaGenerada);
     setreferenceCode(uniqueReferenceCode)
