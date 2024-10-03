@@ -8,6 +8,7 @@ import Topbar from './components/TopBar'
 import PiedePagina from './components/PiedePagina'
 import ProductDetail from './pages/ProductDetail'
 import TransactionResponse from './pages/Response'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/iniciar-sesion' element={<Login />} />
           <Route path='/respuesta_transaccion' element={<TransactionResponse/>} />
           <Route path='flores/:id' element={<ProductDetail />} />
+          <Route path="*" element={<NotFound />} />
  
 
         </Routes>
