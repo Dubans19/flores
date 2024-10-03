@@ -6,6 +6,7 @@ import Cart from './Cart';
 import SearchOverlay from './SearchOverlay';
 import { Link } from 'react-router-dom';
 import rosas from "../assets/rosas.png";
+import PayUForm from './Pagos';
 
 interface MenuItem {
     label: string;
@@ -98,7 +99,8 @@ const Header: React.FC = () => {
                     </a>
 
                     <h1>Total: {formatCurrency(totalPrecio)}</h1>
-                </div>
+                    {totalPrecio > 0 ? <PayUForm totalPrecio={totalPrecio} /> : null}
+                    </div>
             </div>
             {isOpen && <SearchOverlay onClose={() => setIsOpen(false)} />}
             {openCart && <Cart producto={producto.productos} />}

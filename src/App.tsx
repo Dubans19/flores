@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Topbar from './components/TopBar'
 import PiedePagina from './components/PiedePagina'
 import ProductDetail from './pages/ProductDetail'
+import TransactionResponse from './pages/Response'
 
 function App() {
 
@@ -18,7 +19,10 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/iniciar-sesion' element={<Login />} />
+          <Route path='/response' element={<TransactionResponse/>} />
           <Route path='flores/:id' element={<ProductDetail />} />
+ 
+
         </Routes>
         <PiedePagina />
       </BrowserRouter>

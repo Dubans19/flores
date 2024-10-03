@@ -1,13 +1,14 @@
 // import React from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaEnvelope, FaFacebookF, FaInstagram } from 'react-icons/fa';
-
+import payuLogo from "../assets/PayU-Logo.png"
+import imperialLove from "../assets/rosas.png"
 const Footer = () => {
   return (
     <footer className="bg-white py-10 px-5 lg:px-24 border-t border-gray-300 mt-10">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Logo y Eslogan */}
         <div className="col-span-1 flex flex-col items-start">
-          <img src="logo.png" alt="iMPERIAL LOVE LOGO" className="w-32 mb-4" />
+          <img src={imperialLove} alt="iMPERIAL LOVE LOGO" className="w-32 mb-4" />
           <p className="text-gray-600">La mejor marca.</p>
         </div>
 
@@ -76,8 +77,8 @@ const Footer = () => {
       {/* Métodos de pago y Redes sociales */}
       <div className="flex flex-col lg:flex-row justify-between items-center border-t border-gray-300 mt-8 pt-8">
         <div className="flex items-center space-x-4">
-          <p className="text-gray-600">PAGOS SEGUROS POR</p>
-          <img src="wompi-logo.png" alt="Wompi" className="w-16" />
+          <p className="text-gray-600">PAGOS SEGUROS CON</p>
+          <img src={payuLogo} alt="Wompi" className="w-16" />
         </div>
 
         <div className="flex space-x-2 mt-4 lg:mt-0">
@@ -88,7 +89,7 @@ const Footer = () => {
 
       {/* Derechos reservados */}
       <div className="text-center text-gray-600 mt-4">
-        <p>ImperialLove - Todos los derechos reservados | Desarrollado por</p>
+        <p>ImperialLove - Todos los derechos reservados | Desarrollado por WebDesign</p>
       </div>
     </footer>
   );

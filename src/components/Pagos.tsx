@@ -43,7 +43,7 @@ const PayUForm = ({totalPrecio}:{totalPrecio:number}) => {
       <input type="hidden" name="signature" value={firma} />
       <input type="hidden" name="test" value="1" /> {/* Para el entorno de pruebas */}
       <input type="hidden" name="buyerEmail" value="buyer@test.com" />
-      <input type="hidden" name="responseUrl" value="https://florespre.netlify.app/" />
+      <input type="hidden" name="responseUrl" value="http://localhost:5173/response" />
       <input type="hidden" name="confirmationUrl" value="https://florespre.netlify.app/" />
 
       {/* Botón para completar la compra */}
