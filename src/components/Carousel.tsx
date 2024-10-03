@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 import { setProducto,quitProducto } from '../redux/state';
 import { formatCurrency } from '../utils/helpers';
 const productos = [
-  { id: 1, nombre: "Corazón Mío", precio: 460000, img: rosas },
-  { id: 2, nombre: "Cono Corazón", precio:  129.000, img: rosas2 },
-  { id: 3, nombre: "Florero Romance", precio:  165.000, img: rosas },
+  { id: 1, nombre: "Corazón Mío", precio: 15000, img: rosas },
+  { id: 2, nombre: "Cono Corazón", precio:  129000, img: rosas2 },
+  { id: 3, nombre: "Florero Romance", precio:  15000, img: rosas },
   { id: 4, nombre: "Corazón Luxury", precio: 460000, img: rosas2 },
-  { id: 5, nombre: "Ramo de Rosas", precio:  300.000, img: rosas },
-  { id: 6, nombre: "Ramo de Girasoles", precio:  200.000, img: rosas },
-  { id: 7, nombre: "Ramo de Lirios", precio:  180.000, img: rosas },
+  { id: 5, nombre: "Ramo de Rosas", precio:  15000, img: rosas },
+  { id: 6, nombre: "Ramo de Girasoles", precio:  200000, img: rosas },
+  { id: 7, nombre: "Ramo de Lirios", precio:  180000, img: rosas },
   { id: 8, nombre: "Bouquet Elegante", precio:  250.000, img: rosas },
   { id: 9, nombre: "Arreglo Floral Mixto", precio:  320.000, img: rosas },
   { id: 10, nombre: "Caja de Rosas", precio:  400.000, img: rosas },

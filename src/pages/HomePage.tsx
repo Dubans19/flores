@@ -17,9 +17,20 @@ const HomePage: React.FC = () => {
     return acumulador + producto.precio;
   }, 0);
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+  const state = queryParams.get('lapTransactionState');
+  const transactionId = queryParams.get('transactionId');
+
+  console.log("el estado es state",state)
+  console.log("transactionId es",transactionId)
+
+
+  const referenceCode = queryParams.get('referenceCode');
+  const amount = queryParams.get('TX_VALUE');
+  const currency = queryParams.get('currency');
     // Forzar el scroll al top al cargar el componente
     window.scrollTo(0, 0);
-  }, []);
+  }, [location]);
   return (
     <div>
       {/* <Topbar/>
