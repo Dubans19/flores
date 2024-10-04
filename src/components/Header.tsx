@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import { FaSearch, FaUser, FaShoppingBag, FaBars, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { formatCurrency } from '../utils/helpers';
-import Cart from './Cart';
+import {Cart} from "./Cart"
 import SearchOverlay from './SearchOverlay';
 import { Link } from 'react-router-dom';
 import rosas from "../assets/rosas.png";
-import PayUForm from './Pagos';
+// import PayUForm from './Pagos';
+import { groupProducts } from '../utils/groupProducts';
 
 interface MenuItem {
     label: string;
@@ -27,8 +28,23 @@ const Header: React.FC = () => {
     
     const producto = useSelector((state: any) => state); // Reemplaza 'any' con el tipo adecuado si lo tienes
     const count = producto.productos.length;
+    const groupedProducts=groupProducts(producto.productos)
 
-    
+    // console.log("los productos son",producto.productos)
+    // const groupedProducts = producto.productos.reduce((acc:any, product:any) => {
+    //     const existingProduct = acc.find(p => p.id === product.id);
+      
+    //     if (existingProduct) {
+    //       existingProduct.cantidad += 1; // Si ya existe el producto, incrementamos la cantidad
+    //     } else {
+    //       acc.push({ ...product, cantidad: 1 }); // Si no existe, lo agregamos con cantidad 1
+    //     }
+      
+    //     return acc;
+    //   }, []);
+
+    //   console.log("productos agrupados son",groupedProducts)
+
     const totalPrecio = producto.productos.reduce((acumulador: number, producto: { precio: number }) => {
         return acumulador + producto.precio;
     }, 0);
@@ -99,11 +115,15 @@ const Header: React.FC = () => {
                     </a>
 
                     <h1>Total: {formatCurrency(totalPrecio)}</h1>
-                    {totalPrecio > 0 ? <PayUForm totalPrecio={totalPrecio} /> : null}
+                    {/* {totalPrecio > 0 ? <PayUForm totalPrecio={totalPrecio} /> : null} */}
                     </div>
             </div>
             {isOpen && <SearchOverlay onClose={() => setIsOpen(false)} />}
-            {openCart && <Cart producto={producto.productos} />}
+            {openCart && totalPrecio > 0 ? (
+        <Cart producto={groupedProducts} onClose={() => setOpenCart(false)} />
+      ):null}
+   
+            
 
             {isMenuOpen && (
                 <div className="md:hidden bg-white w-full py-4 px-6 space-y-4 shadow-md">

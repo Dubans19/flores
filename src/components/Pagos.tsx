@@ -1,7 +1,21 @@
 import { useEffect, useState, FormEvent } from 'react';
 import generateHash from '../utils/helpers';
+import React from 'react';
+interface Product {
+  id: number;
+  img: string;
+  nombre: string;
+  precio: number;
+  cantidad: number;
+}
 
-const PayUForm = ({totalPrecio}:{totalPrecio:number}) => {
+interface CartProps {
+  totalPrecio:number
+  email:string
+  producto: Product[];
+
+}
+const PayUForm :React.FC<CartProps>=  ({totalPrecio,email,producto}) => {
   const api_key = import.meta.env.VITE_API_KEY as string;
   const merchantId = import.meta.env.VITE_MERCHANTID as string;
   const accountId = import.meta.env.VITE_ACCOUNT_ID as string;
@@ -16,7 +30,8 @@ const PayUForm = ({totalPrecio}:{totalPrecio:number}) => {
     const form = e.currentTarget; // e.currentTarget es el formulario
     form.submit(); // Enviar el formulario a PayU
   };
-
+  const productos = producto.map((product) => `${product.nombre}, Cantidad: ${product.cantidad}`)
+  .join(" / ");
   useEffect(() => {
     const uniqueReferenceCode = generateReferenceCode();
     console.log("uniqueReferences", uniqueReferenceCode)
@@ -36,19 +51,19 @@ const PayUForm = ({totalPrecio}:{totalPrecio:number}) => {
       {/* Credenciales de PayU */}
       <input type="hidden" name="merchantId" value={merchantId} />
       <input type="hidden" name="accountId" value={accountId} />
-      <input type="hidden" name="description" value="Compra en mi tienda" />
+      <input type="hidden" name="description" value={productos}/>
       <input type="hidden" name="referenceCode" value={referenceCode} />
       <input type="hidden" name="amount" value={String(totalPrecio)} />
       <input type="hidden" name="currency" value="COP" />
       <input type="hidden" name="signature" value={firma} />
       <input type="hidden" name="test" value="1" /> {/* Para el entorno de pruebas */}
-      <input type="hidden" name="buyerEmail" value="buyer@test.com" />
+      <input type="hidden" name="buyerEmail" value={email} />
       <input type="hidden" name="responseUrl" value="https://florespre.netlify.app/respuesta_transaccion" />
-      <input type="hidden" name="confirmationUrl" value="https://florespre.netlify.app/" />
+      <input type="hidden" name="confirmationUrl" value="https://florespre.netlify.app/respuesta_transaccion" />
 
       {/* Botón para completar la compra */}
-      <button type="submit" className='bg-rose-500 rounded-md text-white py-2 px-2 flex justify-center'>
-        Pagar
+      <button type="submit" className='bg-rose-500 text-white rounded-md  px-24 py-4 font-semibold'>
+        Finalizar Compra
       </button>
     </form>
   );

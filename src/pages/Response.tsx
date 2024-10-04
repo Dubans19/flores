@@ -11,7 +11,9 @@ const TransactionResponse: React.FC = () => {
 
   // Obteniendo la URL con `useLocation`
   const location = useLocation();
+const Alert=()=>{
 
+}
   useEffect(() => {
     // Parseamos los parámetros de la URL usando URLSearchParams
     const queryParams = new URLSearchParams(location.search);
@@ -41,15 +43,16 @@ const TransactionResponse: React.FC = () => {
     status === 'APPROVED'
       ? 'text-green-600 bg-green-100'
       : status === 'DECLINED'
-      ? 'text-white bg-rose-600 '
-      : 'text-yellow-600 bg-yellow-100';
+      ? 'text-rose-500 bg-rose-200'
+      : status=="PENDING"?'text-yellow-600 bg-yellow-100':status==="EXPIRED" ? "text-orange-500 bg-orange-200": status === "ERROR" ? "text-white bg-red":null;
 
       const estado =
     status === 'APPROVED'
       ? 'Pago Aprobado'
       : status === 'DECLINED'
-      ? 'Pago Rechazado '
-      : 'Pago Rejected';
+      ? 'Pago Rechazado'
+      : status=="PENDING"?'Pago pendiente':status==="EXPIRED" ? "Pago Expirado": status === "ERROR" ? "Error en el pago":"Pago Desconocido";
+ 
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
@@ -81,7 +84,7 @@ const TransactionResponse: React.FC = () => {
         </div>
         <div className="text-center">
             <Link to="/">
-          <button className="mt-6 px-4 py-2 bg-rose-600 text-white rounded-lg shadow hover:bg-rose-500 transition duration-200">
+          <button className="mt-6 px-4 py-2 bg-rose-600 text-white rounded-lg shadow hover:bg-rose-500 transition duration-200" onClick={Alert}>
             Volver a Inicio
           </button>
           </Link>
